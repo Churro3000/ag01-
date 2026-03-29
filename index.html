@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -80,7 +80,7 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-bg-pattern"></div>
     <div class="hero-content">
@@ -104,7 +104,7 @@
     </div>
   </section>
 
-  <!-- SLIDESHOW SECTION -->
+  <!-- SLIDESHOW -->
   <section class="slideshow-section" id="gallery">
     <div class="section-label">Gallery</div>
     <h2 class="section-title">Our Moments</h2>
@@ -112,34 +112,19 @@
       <button class="slide-arrow slide-prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
       <div class="slideshow" id="slideshow">
         <div class="slide active">
-          <div class="slide-img-placeholder">
-            <i class="fas fa-bullseye"></i>
-            <span>Add Your Image 1</span>
-          </div>
+          <div class="slide-img-placeholder"><i class="fas fa-bullseye"></i><span>Add Your Image 1</span></div>
         </div>
         <div class="slide">
-          <div class="slide-img-placeholder">
-            <i class="fas fa-bullseye"></i>
-            <span>Add Your Image 2</span>
-          </div>
+          <div class="slide-img-placeholder"><i class="fas fa-bullseye"></i><span>Add Your Image 2</span></div>
         </div>
         <div class="slide">
-          <div class="slide-img-placeholder">
-            <i class="fas fa-bullseye"></i>
-            <span>Add Your Image 3</span>
-          </div>
+          <div class="slide-img-placeholder"><i class="fas fa-bullseye"></i><span>Add Your Image 3</span></div>
         </div>
         <div class="slide">
-          <div class="slide-img-placeholder">
-            <i class="fas fa-bullseye"></i>
-            <span>Add Your Image 4</span>
-          </div>
+          <div class="slide-img-placeholder"><i class="fas fa-bullseye"></i><span>Add Your Image 4</span></div>
         </div>
         <div class="slide">
-          <div class="slide-img-placeholder">
-            <i class="fas fa-bullseye"></i>
-            <span>Add Your Image 5</span>
-          </div>
+          <div class="slide-img-placeholder"><i class="fas fa-bullseye"></i><span>Add Your Image 5</span></div>
         </div>
       </div>
       <button class="slide-arrow slide-next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
@@ -147,7 +132,7 @@
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT -->
   <section class="about-section" id="about">
     <div class="about-inner">
       <div class="about-text">
@@ -171,46 +156,22 @@
     </div>
   </section>
 
-  <!-- TOURNAMENTS / COUNTRIES SECTION -->
+  <!-- TOURNAMENTS -->
   <section class="tournaments-section" id="tournaments">
     <div class="section-label light">Global Presence</div>
     <h2 class="section-title light">Countries We've Competed In</h2>
     <p class="section-sub light">Active Generation has proudly represented Botswana across the globe.</p>
     <div class="countries-grid" id="countriesGrid">
-      <div class="country-card">
-        <div class="country-flag">🇧🇼</div>
-        <div class="country-name">Botswana</div>
-        <div class="country-detail">National Championships</div>
-      </div>
-      <div class="country-card">
-        <div class="country-flag">🇿🇦</div>
-        <div class="country-name">South Africa</div>
-        <div class="country-detail">Regional Invitational</div>
-      </div>
-      <div class="country-card">
-        <div class="country-flag">🇿🇼</div>
-        <div class="country-name">Zimbabwe</div>
-        <div class="country-detail">SADC Cup</div>
-      </div>
-      <div class="country-card">
-        <div class="country-flag">🇳🇦</div>
-        <div class="country-name">Namibia</div>
-        <div class="country-detail">Southern Africa Open</div>
-      </div>
-      <div class="country-card">
-        <div class="country-flag">🇰🇪</div>
-        <div class="country-name">Kenya</div>
-        <div class="country-detail">Africa Championships</div>
-      </div>
-      <div class="country-card">
-        <div class="country-flag">🇲🇺</div>
-        <div class="country-name">Mauritius</div>
-        <div class="country-detail">Island Games</div>
-      </div>
+      <div class="country-card"><div class="country-flag">🇧🇼</div><div class="country-name">Botswana</div><div class="country-detail">National Championships</div></div>
+      <div class="country-card"><div class="country-flag">🇿🇦</div><div class="country-name">South Africa</div><div class="country-detail">Regional Invitational</div></div>
+      <div class="country-card"><div class="country-flag">🇿🇼</div><div class="country-name">Zimbabwe</div><div class="country-detail">SADC Cup</div></div>
+      <div class="country-card"><div class="country-flag">🇳🇦</div><div class="country-name">Namibia</div><div class="country-detail">Southern Africa Open</div></div>
+      <div class="country-card"><div class="country-flag">🇰🇪</div><div class="country-name">Kenya</div><div class="country-detail">Africa Championships</div></div>
+      <div class="country-card"><div class="country-flag">🇲🇺</div><div class="country-name">Mauritius</div><div class="country-detail">Island Games</div></div>
     </div>
   </section>
 
-  <!-- TRAINING SCHEDULE SECTION -->
+  <!-- SCHEDULE -->
   <section class="schedule-section" id="schedule">
     <div class="schedule-inner">
       <div class="section-label">Training</div>
@@ -245,21 +206,19 @@
     </div>
   </section>
 
-  <!-- SHOP SECTION -->
+  <!-- SHOP -->
   <section class="shop-section" id="shop">
-    <div class="section-label">Merch & Gear</div>
+    <div class="section-label">Merch &amp; Gear</div>
     <h2 class="section-title">Club Shop</h2>
     <p class="section-sub">Official Active Generation merchandise and equipment.</p>
-    <div class="products-grid" id="productsGrid">
-      <!-- Products loaded by JS -->
-    </div>
+    <div class="products-grid" id="productsGrid"></div>
     <div class="shop-empty" id="shopEmpty" style="display:none;">
       <i class="fas fa-store"></i>
       <p>No products yet. Check back soon!</p>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT -->
   <section class="contact-section" id="contact">
     <div class="contact-inner">
       <div class="section-label">Get In Touch</div>
@@ -340,7 +299,7 @@
     </div>
   </footer>
 
-  <script src="js/products.js"></script>
-  <script src="js/main.js"></script>
+  <script src="products.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
