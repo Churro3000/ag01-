@@ -1,7 +1,8 @@
-/* --
-   ACTIVE GENERATION ARCHERY CLUB — MAIN STYLES
-   Font: Open Sans | Colors: Red, Black, White
-  ------ */
+/*
+ * ACTIVE GENERATION ARCHERY CLUB - MAIN STYLES
+ * Font: Open Sans | Colors: Red, Black, White
+ * ------------------------------------------------
+ */
 
 :root {
   --red: #D62828;
@@ -40,14 +41,12 @@ body {
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 
-/* ── SCROLLBAR ── */
+/* --- SCROLLBAR ---- */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--black); }
 ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
 
-/* -------
-   CART SIDEBAR
-   -------- */
+/* ---- CART SIDEBAR ---- */
 .cart-overlay {
   position: fixed; inset: 0; background: rgba(0,0,0,0.6);
   z-index: 999; opacity: 0; pointer-events: none;
@@ -97,7 +96,7 @@ a { text-decoration: none; color: inherit; }
   border: 1px solid rgba(255,255,255,0.06);
   animation: slideIn 0.3s ease;
 }
-@keyframes slideIn { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 
 .cart-item-img {
   width: 60px; height: 60px; background: #222;
@@ -137,9 +136,7 @@ a { text-decoration: none; color: inherit; }
 .btn-whatsapp-order:hover { background: var(--green-dark); transform: translateY(-1px); }
 .btn-whatsapp-order i { font-size: 1.2rem; }
 
-/* ---------------
-   HEADER
-   ------------------------- */
+/* ---- HEADER ---- */
 .header {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 800; background: transparent;
@@ -185,8 +182,10 @@ a { text-decoration: none; color: inherit; }
   height: 2px; background: var(--red); transform: scaleX(0);
   transition: var(--transition); border-radius: 1px;
 }
-.nav-link:hover, .nav-link.active { color: var(--white); }
-.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+.nav-link:hover,
+.nav-link.active { color: var(--white); }
+.nav-link:hover::after,
+.nav-link.active::after { transform: scaleX(1); }
 
 .header-actions { display: flex; align-items: center; gap: 12px; }
 
@@ -229,9 +228,7 @@ a { text-decoration: none; color: inherit; }
 .mobile-nav.open { display: flex; }
 .mobile-nav .nav-link { padding: 12px 16px; font-size: 1rem; }
 
-/* ------------------
-   HERO
-   ---------------------------- */
+/* ---- HERO ---- */
 .hero {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
@@ -239,8 +236,7 @@ a { text-decoration: none; color: inherit; }
 }
 .hero-bg-pattern {
   position: absolute; inset: 0; opacity: 0.04;
-  background-image:
-    radial-gradient(circle at 2px 2px, rgba(214,40,40,0.8) 1px, transparent 0);
+  background-image: radial-gradient(circle at 2px 2px, rgba(214,40,40,0.8) 1px, transparent 0);
   background-size: 40px 40px;
 }
 .hero::before {
@@ -262,7 +258,7 @@ a { text-decoration: none; color: inherit; }
   padding: 0 24px; max-width: 800px;
   animation: heroReveal 1s ease 0.2s both;
 }
-@keyframes heroReveal { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes heroReveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 .hero-badge {
   display: inline-block; padding: 8px 20px;
@@ -333,11 +329,9 @@ a { text-decoration: none; color: inherit; }
   background: linear-gradient(to bottom, rgba(214,40,40,0.7), transparent);
   animation: scrollLine 1.5s ease-in-out infinite;
 }
-@keyframes scrollLine { 0%,100% { transform: scaleY(1); opacity:1; } 50% { transform: scaleY(0.5); opacity:0.4; } }
+@keyframes scrollLine { 0%, 100% { transform: scaleY(1); opacity: 1; } 50% { transform: scaleY(0.5); opacity: 0.4; } }
 
-/* ------------------
-   SECTION UTILITIES
-   ---------------------------------- */
+/* ---- SECTION UTILITIES ---- */
 .section-label {
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--red); margin-bottom: 12px;
@@ -354,9 +348,7 @@ a { text-decoration: none; color: inherit; }
 }
 .section-sub.light { color: rgba(255,255,255,0.6); }
 
-/* =============================================
-   SLIDESHOW
-   ============================================= */
+/* ---- SLIDESHOW ---- */
 .slideshow-section {
   padding: 100px 40px; max-width: 1400px; margin: 0 auto;
 }
@@ -404,8 +396,7 @@ a { text-decoration: none; color: inherit; }
 }
 .dot.active { background: var(--red); transform: scale(1.3); }
 
-/* ------ ABOUT 
-   ------------------------ */
+/* ---- ABOUT ---- */
 .about-section {
   padding: 100px 40px; max-width: 1400px; margin: 0 auto;
 }
@@ -442,9 +433,7 @@ a { text-decoration: none; color: inherit; }
   border-radius: 20px; opacity: 0.2; z-index: -1;
 }
 
-/*---------------------
-   TOURNAMENTS
-   ------------------------------------- */
+/* ---- TOURNAMENTS ---- */
 .tournaments-section {
   padding: 100px 40px; background: var(--black-soft);
   text-align: center;
@@ -467,9 +456,7 @@ a { text-decoration: none; color: inherit; }
 .country-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
 .country-detail { font-size: 0.75rem; color: var(--gray); }
 
-/* -------------------------
-   SCHEDULE
-   ----------------------------------- */
+/* ---- SCHEDULE ---- */
 .schedule-section { padding: 100px 40px; }
 .schedule-inner { max-width: 1200px; margin: 0 auto; }
 .schedule-grid {
@@ -502,9 +489,7 @@ a { text-decoration: none; color: inherit; }
 .schedule-level.advanced { background: rgba(214,40,40,0.15); color: var(--red-light); }
 .schedule-level.all { background: rgba(255,255,255,0.1); color: var(--white); }
 
-/* ---------------
-   SHOP
-   -------------------------- */
+/* ---- SHOP ---- */
 .shop-section {
   padding: 100px 40px; background: var(--black-soft);
   text-align: center;
@@ -575,9 +560,7 @@ a { text-decoration: none; color: inherit; }
 }
 .shop-empty i { font-size: 3rem; }
 
-/* --------------------
-   CONTACT
-   ------------------------------------- */
+/* ---- CONTACT ---- */
 .contact-section { padding: 100px 40px; }
 .contact-inner { max-width: 1100px; margin: 0 auto; }
 .contact-grid {
@@ -596,7 +579,8 @@ a { text-decoration: none; color: inherit; }
   width: 24px; text-align: center;
 }
 .contact-item strong { display: block; font-weight: 700; margin-bottom: 4px; }
-.contact-item a, .contact-item span {
+.contact-item a,
+.contact-item span {
   font-size: 0.9rem; color: rgba(255,255,255,0.6);
 }
 .contact-item a:hover { color: var(--red); }
@@ -623,9 +607,7 @@ a { text-decoration: none; color: inherit; }
 .contact-join h3 { font-size: 1.8rem; font-weight: 800; }
 .contact-join p { color: rgba(255,255,255,0.6); line-height: 1.7; }
 
-/* ---------------
-   FOOTER
-   ------------------------------- */
+/* ---- FOOTER ---- */
 .footer {
   background: #050505; padding: 48px 40px 0;
   border-top: 1px solid rgba(255,255,255,0.06);
@@ -655,18 +637,14 @@ a { text-decoration: none; color: inherit; }
 }
 .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
 
-/* ----------------
-   MOTION / ANIMATIONS
-   --------------------------------------- */
+/* ---- ANIMATIONS ---- */
 .fade-in {
   opacity: 0; transform: translateY(24px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-/* -------------------
-   RESPONSIVE
-   ----------------------------------------- */
+/* ---- RESPONSIVE ---- */
 @media (max-width: 1024px) {
   .about-inner { grid-template-columns: 1fr; gap: 40px; }
   .about-visual { max-width: 480px; }
