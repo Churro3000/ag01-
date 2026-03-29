@@ -7,7 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="../css/style.css" />
+  <!-- PATH FIXED: was ../css/style.css — now ../style.css -->
+  <link rel="stylesheet" href="../style.css" />
+  <!-- admin.css stays as-is — it's in the same admin/ folder -->
   <link rel="stylesheet" href="admin.css" />
 </head>
 <body class="admin-body">
@@ -97,7 +99,7 @@
         </div>
       </div>
 
-      <!-- ── PRODUCTS TAB ── -->
+      <!-- PRODUCTS TAB -->
       <div class="tab-content active" id="tab-products">
         <div class="tab-header">
           <div>
@@ -111,7 +113,7 @@
         <div class="admin-products-grid" id="adminProductsGrid"></div>
       </div>
 
-      <!-- ── SCHEDULE TAB ── -->
+      <!-- SCHEDULE TAB -->
       <div class="tab-content" id="tab-schedule">
         <div class="tab-header">
           <div>
@@ -125,7 +127,7 @@
         <div class="admin-schedule-list" id="adminScheduleList"></div>
       </div>
 
-      <!-- ── TOURNAMENTS TAB ── -->
+      <!-- TOURNAMENTS TAB -->
       <div class="tab-content" id="tab-tournaments">
         <div class="tab-header">
           <div>
@@ -139,7 +141,7 @@
         <div class="admin-countries-list" id="adminCountriesList"></div>
       </div>
 
-      <!-- ── SETTINGS TAB ── -->
+      <!-- SETTINGS TAB -->
       <div class="tab-content" id="tab-settings">
         <div class="tab-header">
           <div>
@@ -187,7 +189,7 @@
     </main>
   </div>
 
-  <!-- ═══ MODALS ═══ -->
+  <!-- MODALS -->
 
   <!-- Product Modal -->
   <div class="modal-overlay" id="productModal" onclick="closeModal('productModal')">
@@ -414,7 +416,8 @@
   <!-- Toast -->
   <div class="toast" id="toast"></div>
 
-  <script src="../js/products.js"></script>
+  <!-- PATH FIXED: was ../js/products.js — now ../products.js -->
+  <script src="../products.js"></script>
   <script src="admin.js"></script>
 </body>
 </html>
