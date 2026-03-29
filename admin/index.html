@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Active Generation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- LOGIN SCREEN -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="logo-placeholder"><span>AG</span></div>
+        <div>
+          <div class="club-name-main">Active Generation</div>
+          <div class="club-name-sub">Admin Panel</div>
+        </div>
+      </div>
+      <h2 class="login-title">Sign In</h2>
+      <p class="login-sub">Authorised access only</p>
+      <div class="form-group">
+        <label>Username</label>
+        <div class="input-wrap">
+          <i class="fas fa-user"></i>
+          <input type="text" id="loginUser" placeholder="Enter username" autocomplete="username" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div class="input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="loginPass" placeholder="Enter password" autocomplete="current-password" />
+          <button class="toggle-pass" onclick="togglePassVis()" type="button"><i class="fas fa-eye" id="eyeIcon"></i></button>
+        </div>
+      </div>
+      <div class="login-error" id="loginError" style="display:none;">
+        <i class="fas fa-exclamation-circle"></i> Invalid credentials.
+      </div>
+      <button class="btn-admin-primary" onclick="doLogin()">
+        <i class="fas fa-arrow-right-to-bracket"></i> Sign In
+      </button>
+      <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to website</a>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD -->
+  <div class="admin-app" id="adminApp" style="display:none;">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-header">
+        <div class="logo-placeholder small"><span>AG</span></div>
+        <div>
+          <div class="club-name-main" style="font-size:0.85rem;">Active Generation</div>
+          <div class="club-name-sub">Admin</div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="sidebar-link active" onclick="showTab('products')">
+          <i class="fas fa-store"></i> Products
+        </button>
+        <button class="sidebar-link" onclick="showTab('schedule')">
+          <i class="fas fa-calendar"></i> Schedule
+        </button>
+        <button class="sidebar-link" onclick="showTab('tournaments')">
+          <i class="fas fa-globe"></i> Tournaments
+        </button>
+        <button class="sidebar-link" onclick="showTab('settings')">
+          <i class="fas fa-cog"></i> Settings
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="btn-logout" onclick="doLogout()">
+          <i class="fas fa-right-from-bracket"></i> Logout
+        </button>
+        <a href="../index.html" class="back-link" style="margin-top:8px;">
+          <i class="fas fa-external-link-alt"></i> View Website
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      <!-- TOPBAR -->
+      <div class="admin-topbar">
+        <button class="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+        <h1 class="admin-page-title" id="adminPageTitle">Products</h1>
+        <div class="admin-user">
+          <i class="fas fa-user-shield"></i>
+          <span id="adminUsername">admin</span>
+        </div>
+      </div>
+
+      <!-- ── PRODUCTS TAB ── -->
+      <div class="tab-content active" id="tab-products">
+        <div class="tab-header">
+          <div>
+            <h2>Manage Products</h2>
+            <p class="tab-sub">Add, edit, or remove shop items.</p>
+          </div>
+          <button class="btn-admin-primary" onclick="openProductModal()">
+            <i class="fas fa-plus"></i> Add Product
+          </button>
+        </div>
+        <div class="admin-products-grid" id="adminProductsGrid"></div>
+      </div>
+
+      <!-- ── SCHEDULE TAB ── -->
+      <div class="tab-content" id="tab-schedule">
+        <div class="tab-header">
+          <div>
+            <h2>Training Schedule</h2>
+            <p class="tab-sub">Manage training sessions and timings.</p>
+          </div>
+          <button class="btn-admin-primary" onclick="openScheduleModal()">
+            <i class="fas fa-plus"></i> Add Session
+          </button>
+        </div>
+        <div class="admin-schedule-list" id="adminScheduleList"></div>
+      </div>
+
+      <!-- ── TOURNAMENTS TAB ── -->
+      <div class="tab-content" id="tab-tournaments">
+        <div class="tab-header">
+          <div>
+            <h2>Tournament Countries</h2>
+            <p class="tab-sub">Manage countries where the club has competed.</p>
+          </div>
+          <button class="btn-admin-primary" onclick="openCountryModal()">
+            <i class="fas fa-plus"></i> Add Country
+          </button>
+        </div>
+        <div class="admin-countries-list" id="adminCountriesList"></div>
+      </div>
+
+      <!-- ── SETTINGS TAB ── -->
+      <div class="tab-content" id="tab-settings">
+        <div class="tab-header">
+          <div>
+            <h2>Settings</h2>
+            <p class="tab-sub">Configure site settings and credentials.</p>
+          </div>
+        </div>
+        <div class="settings-grid">
+          <div class="settings-card">
+            <h3><i class="fab fa-whatsapp"></i> WhatsApp Number</h3>
+            <p>Number used for orders and Join Us button.</p>
+            <div class="input-wrap" style="margin-top:12px;">
+              <i class="fas fa-phone"></i>
+              <input type="text" id="settingsWA" placeholder="e.g. 26712345678" />
+            </div>
+            <button class="btn-admin-secondary" onclick="saveWhatsApp()" style="margin-top:12px;">Save</button>
+          </div>
+          <div class="settings-card">
+            <h3><i class="fas fa-key"></i> Change Password</h3>
+            <p>Update your admin panel password.</p>
+            <div class="input-wrap" style="margin-top:12px;">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="newPass1" placeholder="New password" />
+            </div>
+            <div class="input-wrap" style="margin-top:8px;">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="newPass2" placeholder="Confirm new password" />
+            </div>
+            <button class="btn-admin-secondary" onclick="changePassword()" style="margin-top:12px;">Update Password</button>
+            <div class="settings-msg" id="passMsg" style="display:none;"></div>
+          </div>
+          <div class="settings-card">
+            <h3><i class="fas fa-user"></i> Change Username</h3>
+            <p>Update your admin username.</p>
+            <div class="input-wrap" style="margin-top:12px;">
+              <i class="fas fa-user"></i>
+              <input type="text" id="newUsername" placeholder="New username" />
+            </div>
+            <button class="btn-admin-secondary" onclick="changeUsername()" style="margin-top:12px;">Update Username</button>
+            <div class="settings-msg" id="userMsg" style="display:none;"></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ═══ MODALS ═══ -->
+
+  <!-- Product Modal -->
+  <div class="modal-overlay" id="productModal" onclick="closeModal('productModal')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="productModalTitle">Add Product</h3>
+        <button class="modal-close" onclick="closeModal('productModal')"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="productId" />
+        <div class="form-row">
+          <div class="form-group">
+            <label>Product Name *</label>
+            <div class="input-wrap">
+              <i class="fas fa-tag"></i>
+              <input type="text" id="productName" placeholder="e.g. Club T-Shirt" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Price (P) *</label>
+            <div class="input-wrap">
+              <i class="fas fa-coins"></i>
+              <input type="number" id="productPrice" placeholder="0.00" min="0" step="0.01" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="productDesc" placeholder="Short product description..." rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Product Image URL</label>
+          <div class="input-wrap">
+            <i class="fas fa-image"></i>
+            <input type="text" id="productImage" placeholder="https://... or leave blank" oninput="previewImage()" />
+          </div>
+          <div class="img-preview" id="imgPreview" style="display:none;">
+            <img id="imgPreviewEl" src="" alt="Preview" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <div class="input-wrap">
+            <i class="fas fa-folder"></i>
+            <select id="productCategory">
+              <option value="apparel">Apparel</option>
+              <option value="equipment">Equipment</option>
+              <option value="accessories">Accessories</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Badge</label>
+          <div class="input-wrap">
+            <i class="fas fa-certificate"></i>
+            <select id="productBadge">
+              <option value="">None</option>
+              <option value="new">New</option>
+              <option value="sale">Sale</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="productHasSizes" onchange="toggleSizesInput()" />
+            This product has sizes
+          </label>
+        </div>
+        <div class="form-group" id="sizesGroup" style="display:none;">
+          <label>Available Sizes <span style="color:var(--gray);font-size:0.75rem;">(comma separated)</span></label>
+          <div class="input-wrap">
+            <i class="fas fa-ruler"></i>
+            <input type="text" id="productSizes" placeholder="XS, S, M, L, XL, XXL" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="productInStock" checked />
+            In Stock (visible in shop)
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin-ghost" onclick="closeModal('productModal')">Cancel</button>
+        <button class="btn-admin-primary" onclick="saveProduct()">
+          <i class="fas fa-save"></i> Save Product
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schedule Modal -->
+  <div class="modal-overlay" id="scheduleModal" onclick="closeModal('scheduleModal')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="scheduleModalTitle">Add Training Session</h3>
+        <button class="modal-close" onclick="closeModal('scheduleModal')"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="scheduleId" />
+        <div class="form-row">
+          <div class="form-group">
+            <label>Day *</label>
+            <div class="input-wrap">
+              <i class="fas fa-calendar-day"></i>
+              <select id="scheduleDay">
+                <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+                <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Level</label>
+            <div class="input-wrap">
+              <i class="fas fa-signal"></i>
+              <select id="scheduleLevel">
+                <option value="beginner">Beginners</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+                <option value="all">All Levels</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Start Time *</label>
+            <div class="input-wrap">
+              <i class="fas fa-clock"></i>
+              <input type="time" id="scheduleStart" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>End Time *</label>
+            <div class="input-wrap">
+              <i class="fas fa-clock"></i>
+              <input type="time" id="scheduleEnd" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Session Name</label>
+          <div class="input-wrap">
+            <i class="fas fa-pen"></i>
+            <input type="text" id="scheduleType" placeholder="e.g. Morning Session" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="scheduleFeatured" />
+            Feature this session (highlighted)
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin-ghost" onclick="closeModal('scheduleModal')">Cancel</button>
+        <button class="btn-admin-primary" onclick="saveSchedule()">
+          <i class="fas fa-save"></i> Save Session
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Country Modal -->
+  <div class="modal-overlay" id="countryModal" onclick="closeModal('countryModal')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Add Country</h3>
+        <button class="modal-close" onclick="closeModal('countryModal')"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="countryId" />
+        <div class="form-group">
+          <label>Country Name *</label>
+          <div class="input-wrap">
+            <i class="fas fa-globe"></i>
+            <input type="text" id="countryName" placeholder="e.g. South Africa" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Flag Emoji *</label>
+          <div class="input-wrap">
+            <i class="fas fa-flag"></i>
+            <input type="text" id="countryFlag" placeholder="e.g. 🇿🇦" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Tournament / Event</label>
+          <div class="input-wrap">
+            <i class="fas fa-trophy"></i>
+            <input type="text" id="countryDetail" placeholder="e.g. Regional Invitational" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin-ghost" onclick="closeModal('countryModal')">Cancel</button>
+        <button class="btn-admin-primary" onclick="saveCountry()">
+          <i class="fas fa-save"></i> Save Country
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Delete Modal -->
+  <div class="modal-overlay" id="confirmModal" onclick="closeModal('confirmModal')">
+    <div class="modal modal-sm" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Confirm Delete</h3>
+        <button class="modal-close" onclick="closeModal('confirmModal')"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <p id="confirmMsg">Are you sure you want to delete this item?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin-ghost" onclick="closeModal('confirmModal')">Cancel</button>
+        <button class="btn-admin-danger" id="confirmDeleteBtn">
+          <i class="fas fa-trash"></i> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/products.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
