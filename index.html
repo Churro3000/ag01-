@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Active Generation Archery Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+      <button class="cart-close" onclick="closeCart()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Your cart is empty</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">P0.00</span>
+      </div>
+      <a id="whatsappOrderAll" href="#" target="_blank" class="btn-whatsapp-order">
+        <i class="fab fa-whatsapp"></i> Order All via WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#home" class="logo-area">
+        <div class="logo-placeholder" id="logoPlaceholder">
+          <span>AG</span>
+        </div>
+        <div class="club-name">
+          <span class="club-name-main">Active Generation</span>
+          <span class="club-name-sub">Archery Club</span>
+        </div>
+      </a>
+
+      <nav class="nav" id="mainNav">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#tournaments" class="nav-link">Tournaments</a>
+        <a href="#schedule" class="nav-link">Training</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-btn" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#home" class="nav-link" onclick="closeMobileMenu()">Home</a>
+      <a href="#about" class="nav-link" onclick="closeMobileMenu()">About</a>
+      <a href="#shop" class="nav-link" onclick="closeMobileMenu()">Shop</a>
+      <a href="#tournaments" class="nav-link" onclick="closeMobileMenu()">Tournaments</a>
+      <a href="#schedule" class="nav-link" onclick="closeMobileMenu()">Training</a>
+      <a href="#contact" class="nav-link" onclick="closeMobileMenu()">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🏹 Est. Active Generation</div>
+      <h1 class="hero-title">
+        <span class="hero-title-line">Aim.</span>
+        <span class="hero-title-line accent">Focus.</span>
+        <span class="hero-title-line">Excel.</span>
+      </h1>
+      <p class="hero-subtitle">Botswana's premier archery club — training champions, building character, and competing on the world stage.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/26700000000?text=Good%20day!%20I%20would%20like%20to%20join%20Active%20Generation%20Archery%20Club." target="_blank" class="btn-join">
+          <i class="fab fa-whatsapp"></i> Join Us Now
+        </a>
+        <a href="#about" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SLIDESHOW SECTION -->
+  <section class="slideshow-section" id="gallery">
+    <div class="section-label">Gallery</div>
+    <h2 class="section-title">Our Moments</h2>
+    <div class="slideshow-wrapper">
+      <button class="slide-arrow slide-prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+      <div class="slideshow" id="slideshow">
+        <div class="slide active">
+          <div class="slide-img-placeholder">
+            <i class="fas fa-bullseye"></i>
+            <span>Add Your Image 1</span>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-img-placeholder">
+            <i class="fas fa-bullseye"></i>
+            <span>Add Your Image 2</span>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-img-placeholder">
+            <i class="fas fa-bullseye"></i>
+            <span>Add Your Image 3</span>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-img-placeholder">
+            <i class="fas fa-bullseye"></i>
+            <span>Add Your Image 4</span>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-img-placeholder">
+            <i class="fas fa-bullseye"></i>
+            <span>Add Your Image 5</span>
+          </div>
+        </div>
+      </div>
+      <button class="slide-arrow slide-next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+      <div class="slide-dots" id="slideDots"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">Active Generation<br/>Archery Club</h2>
+        <p>We are a passionate community of archers dedicated to developing skill, discipline, and sportsmanship. From beginners picking up their first bow to seasoned competitors on the international stage, Active Generation is your home.</p>
+        <p>Our coaches bring decades of experience, and our facilities are designed to help every archer reach their full potential — whether competing locally or representing Botswana across the globe.</p>
+        <div class="about-stats">
+          <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Members</span></div>
+          <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Countries Visited</span></div>
+          <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Tournaments</span></div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-img-placeholder">
+          <i class="fas fa-crosshairs"></i>
+          <span>Club Photo</span>
+        </div>
+        <div class="about-accent-box"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOURNAMENTS / COUNTRIES SECTION -->
+  <section class="tournaments-section" id="tournaments">
+    <div class="section-label light">Global Presence</div>
+    <h2 class="section-title light">Countries We've Competed In</h2>
+    <p class="section-sub light">Active Generation has proudly represented Botswana across the globe.</p>
+    <div class="countries-grid" id="countriesGrid">
+      <div class="country-card">
+        <div class="country-flag">🇧🇼</div>
+        <div class="country-name">Botswana</div>
+        <div class="country-detail">National Championships</div>
+      </div>
+      <div class="country-card">
+        <div class="country-flag">🇿🇦</div>
+        <div class="country-name">South Africa</div>
+        <div class="country-detail">Regional Invitational</div>
+      </div>
+      <div class="country-card">
+        <div class="country-flag">🇿🇼</div>
+        <div class="country-name">Zimbabwe</div>
+        <div class="country-detail">SADC Cup</div>
+      </div>
+      <div class="country-card">
+        <div class="country-flag">🇳🇦</div>
+        <div class="country-name">Namibia</div>
+        <div class="country-detail">Southern Africa Open</div>
+      </div>
+      <div class="country-card">
+        <div class="country-flag">🇰🇪</div>
+        <div class="country-name">Kenya</div>
+        <div class="country-detail">Africa Championships</div>
+      </div>
+      <div class="country-card">
+        <div class="country-flag">🇲🇺</div>
+        <div class="country-name">Mauritius</div>
+        <div class="country-detail">Island Games</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING SCHEDULE SECTION -->
+  <section class="schedule-section" id="schedule">
+    <div class="schedule-inner">
+      <div class="section-label">Training</div>
+      <h2 class="section-title">Training Schedule</h2>
+      <p class="section-sub">Join us on the range — all levels welcome.</p>
+      <div class="schedule-grid" id="scheduleGrid">
+        <div class="schedule-card">
+          <div class="schedule-day">Monday</div>
+          <div class="schedule-time"><i class="fas fa-clock"></i> 06:00 – 08:00</div>
+          <div class="schedule-type">Morning Session</div>
+          <div class="schedule-level beginner">Beginners</div>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-day">Wednesday</div>
+          <div class="schedule-time"><i class="fas fa-clock"></i> 17:00 – 19:00</div>
+          <div class="schedule-type">Evening Session</div>
+          <div class="schedule-level intermediate">Intermediate</div>
+        </div>
+        <div class="schedule-card featured">
+          <div class="schedule-day">Saturday</div>
+          <div class="schedule-time"><i class="fas fa-clock"></i> 08:00 – 12:00</div>
+          <div class="schedule-type">Full Morning Session</div>
+          <div class="schedule-level all">All Levels</div>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-day">Sunday</div>
+          <div class="schedule-time"><i class="fas fa-clock"></i> 09:00 – 11:00</div>
+          <div class="schedule-type">Open Range</div>
+          <div class="schedule-level advanced">Advanced</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP SECTION -->
+  <section class="shop-section" id="shop">
+    <div class="section-label">Merch & Gear</div>
+    <h2 class="section-title">Club Shop</h2>
+    <p class="section-sub">Official Active Generation merchandise and equipment.</p>
+    <div class="products-grid" id="productsGrid">
+      <!-- Products loaded by JS -->
+    </div>
+    <div class="shop-empty" id="shopEmpty" style="display:none;">
+      <i class="fas fa-store"></i>
+      <p>No products yet. Check back soon!</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title light">Contact Us</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <div>
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/26700000000" target="_blank">+267 00 000 000</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Location</strong>
+              <span>Gaborone, Botswana</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:info@activegeneration.bw">info@activegeneration.bw</a>
+            </div>
+          </div>
+          <div class="socials-block">
+            <p class="follow-us">Follow Us</p>
+            <div class="social-icons">
+              <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+              <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+              <a href="#" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-join">
+          <h3>Ready to Join?</h3>
+          <p>We welcome archers of all skill levels. Reach out and become part of the Active Generation family today.</p>
+          <a href="https://wa.me/26700000000?text=Good%20day!%20I%20would%20like%20to%20join%20Active%20Generation%20Archery%20Club." target="_blank" class="btn-join large">
+            <i class="fab fa-whatsapp"></i> Join Us on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-placeholder small"><span>AG</span></div>
+        <div>
+          <div class="club-name-main">Active Generation</div>
+          <div class="club-name-sub">Archery Club</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#shop">Shop</a>
+        <a href="#tournaments">Tournaments</a>
+        <a href="#schedule">Training</a>
+        <a href="#contact">Contact</a>
+        <a href="admin/index.html">Admin</a>
+      </div>
+      <div class="footer-social">
+        <p class="follow-us">Follow Us</p>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+          <a href="#" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Active Generation Archery Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
